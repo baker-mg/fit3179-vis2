@@ -1,4 +1,4 @@
-"PEAKID,C,4","PKNAME,C,70","PKNAME2,C,70","LOCATION,C,70","HEIGHTM,N,4,0","HEIGHTF,N,5,0","HIMAL,N,2,0","REGION,N,1,0","OPEN,L","UNLISTED,L","TREKKING,L","TREKYEAR,C,4","RESTRICT,C,70","PHOST,N,1,0","PSTATUS,N,1,0","PEAKMEMO,M","PYEAR,C,4","PSEASON,N,1,0","PEXPID,C,9","PSMTDATE,C,6","PCOUNTRY,C,70","PSUMMITERS,C,210","PSMTNOTE,C,140","REFERMEMO,M","PHOTOMEMO,M"
+"peakid","peak_name","peak_name2","location","height_metre","height_feet","himal","region","open","unlisted","trekking","trek_year","restrict","phost","pstatus","peak_memo","pyear","pseason","pexpid","peak_summit_date","pcountry","psummiters","psmtnote","refermemo","photomemo"
 AMAD,Ama Dablam,Amai Dablang,Khumbu Himal,6814,22356,12,2,TRUE,FALSE,FALSE,,,1,2,,1961,1,AMAD61101,Mar 13,"New Zealand, USA, UK","Mike Gill, Wally Romanes, Barry Bishop, Michael Ward",,,
 AMPG,Amphu Gyabjen,,Khumbu Himal (N of Ama Dablam),5630,18471,12,2,TRUE,FALSE,FALSE,,Opened in 2002,1,2,,1953,1,AMPG53101,Apr 11,UK,"John Hunt, Tom Bourdillon",,,
 ANN1,Annapurna I,,Annapurna Himal,8091,26545,1,5,TRUE,FALSE,FALSE,,,1,2,,1950,1,ANN150101,Jun 03,France,"Maurice Herzog, Louis Lachenal",,,
