@@ -1,5 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+		"text": "Cause of Death when Climbing Mount Everest",
+        "orient": "top",
+        "anchor": "start",
+        "align": "left"
+	},
     "data": {"url": "data/death_cause.csv"},
     "width": 300, "height": 200,
     "mark": "area",
