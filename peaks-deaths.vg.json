@@ -7,10 +7,10 @@
 	"layer": [
 		{
 			"data": {
-				"url": "data/nepal.json",
+				"url": "data/nepal-outline.json",
 				"format": {
 					"type": "topojson",
-					"feature": "custom.geo (2)"
+					"feature": "gadm36_NPL_0"
 				}
 			},
 			"mark": {
@@ -23,26 +23,44 @@
             "data": {
                 "url": "data/peaks-deaths-attempts.csv"
             },
-            "mark": {
-                "type":"point",
-                "shape":"triangle-up",
-                "tooltip": {"content": "data"}
-            },
-            "encoding": {
+            "encoding":{
                 "longitude":{"field":"lon", "type": "quantitative"},
-                "latitude":{"field":"lat", "type": "quantitative"},
-                "size":{
-                    "field":"deaths",
-                    "type": "quantitative",
-                    "scale":{
-                        "type": "log"
+                "latitude":{"field":"lat", "type": "quantitative"}
+            },
+            "layer": [
+                {
+                    "mark": {
+                        "type":"point",
+                        "shape":"triangle-up",
+                        "tooltip": {"content": "data"}
+                    },
+                    "encoding": {
+                        "size":{
+                            "field":"deaths",
+                            "type": "quantitative",
+                            "scale":{
+                                "type": "log"
+                            }
+                        },
+                        "color":{
+                            "field": "death_rate",
+                            "type": "quantitative"
+                        }
                     }
                 },
-                "color":{
-                    "field": "death_rate",
-                    "type": "quantitative"
+                {
+                    "mark": {
+                        "type": "text",
+                        "dy": 10
+                    },
+                    "encoding": {
+                        "text": {
+                            "field": "peak_name",
+                            "type": "nominal"
+                        }
+                    }
                 }
-            }
+            ]
         }
 	]
 }
