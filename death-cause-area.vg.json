@@ -5,13 +5,20 @@
     "mark": "area",
     "encoding": {
       "x": {
-        "field": "decade"
+        "field": "decade",
+        "title": "Decade"
       },
       "y": {
         "aggregate": "sum", "field": "n",
-        "stack": "normalize"
-  
+        "stack": "normalize",
+        "title": ""  
       },
-      "color": {"field":"death_cause", "scale":{"scheme": "category20b"}}
+      "color": {
+          "field":"death_cause",
+          "scale":{
+              "scheme": "category20b"
+            },
+            "title": "Cause of Death"
+        }
     }
   }
