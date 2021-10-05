@@ -1,0 +1,17 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/death_cause.csv"},
+    "width": 300, "height": 200,
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "decade"
+      },
+      "y": {
+        "aggregate": "sum", "field": "n",
+        "stack": "normalize"
+  
+      },
+      "color": {"field":"death_cause", "scale":{"scheme": "category20b"}}
+    }
+  }
