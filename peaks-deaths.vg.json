@@ -1,0 +1,48 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"width": 800,
+	"height": 500,
+	"title": "test",
+	"projection": { "type": "equalEarth" },
+	"layer": [
+		{
+			"data": {
+				"url": "data/nepal.json",
+				"format": {
+					"type": "topojson",
+					"feature": "custom.geo (2)"
+				}
+			},
+			"mark": {
+				"type": "geoshape",
+				"fill": "lightgray",
+				"stroke": "white"
+			}
+		},
+        {
+            "data": {
+                "url": "data/peaks-deaths-attempts.csv"
+            },
+            "mark": {
+                "type":"point",
+                "shape":"triangle-up",
+                "tooltip": {"content": "data"}
+            },
+            "encoding": {
+                "longitude":{"field":"lon", "type": "quantitative"},
+                "latitude":{"field":"lat", "type": "quantitative"},
+                "size":{
+                    "field":"deaths",
+                    "type": "quantitative",
+                    "scale":{
+                        "type": "log"
+                    }
+                },
+                "color":{
+                    "field": "death_rate",
+                    "type": "quantitative"
+                }
+            }
+        }
+	]
+}
