@@ -1,0 +1,12 @@
+.centre-section {
+    position: absolute;
+    top: 100;
+    left: 50;
+}
+
+button.link {
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+}
