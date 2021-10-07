@@ -1,15 +1,20 @@
 <head>
     <link href="css/style.css" rel="stylesheet" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <script src="js/main.js"></script>
 </head>
 
 <body>
     <div class="main-container">
         <div class="centre-container">
+            <div class="centre-section" id="death-cause-cc"></div>
             <div class="centre-section", id="h">Hello</div>
-            <div class="centre-section", id="g" style="display: none;">Goodbye</div>
+            <div class="centre-section", id="g">Goodbye</div>
         </div>
+        <div id="death-cause-main"></div>
     </div>
 
 
@@ -18,3 +23,4 @@
 
 <button type="button" class="link" id="h-b" onclick="switchTo('h')">h</button>
 <button type="button" class="link" id="g-b" onclick="switchTo('g')">g</button>
+<button type="button" class="link" id="death-cause-b" onclick="switchTo('death-cause-cc')">Chart</button>
