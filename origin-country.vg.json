@@ -1,0 +1,64 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"title": {
+		"text": "Countries of Origin of Mount Everest Climbers",
+		"orient": "top",
+		"anchor": "start",
+		"align": "left"
+	},
+	"width": 800,
+	"height": 600,
+	"layer": [
+		{
+			"data": {
+				"url": "data/world-topo.json",
+				"format": { "type": "topojson", "feature": "custom.geo" }
+			},
+			"projection": { "type": "equirectangular" },
+			"mark": {
+				"type": "geoshape",
+				"fill": "lightgrey"
+			}
+		},
+		{
+			"data": {
+				"url": "data/world-topo.json",
+				"format": { "type": "topojson", "feature": "custom.geo" }
+			},
+			"projection": { "type": "equirectangular" },
+			"transform": [
+				{
+					"lookup": "properties.name",
+					"from": {
+						"data": {
+							"url": "data/origin-country.csv"
+						},
+						"key": "simple_country",
+						"fields": ["n"]
+					}
+				}
+			],
+			"mark": { "type": "geoshape" },
+			"encoding": {
+				"color": {
+					"field": "n",
+					"type": "quantitative",
+					"scale": { "type": "linear" }
+				},
+				"tooltip": [
+					{
+						"field": "properties.name",
+						"type": "nominal",
+						"title": "Country"
+					},
+					{
+						"field": "n",
+						"type": "quantitative",
+						"title": "Number of Climbers",
+						"format": ","
+					}
+				]
+			}
+		}
+	]
+}
