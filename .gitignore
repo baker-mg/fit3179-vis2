@@ -2,6 +2,8 @@
 # Created by https://www.gitignore.io/api/macos,latex,pycharm,windows,microsoftoffice
 # Edit at https://www.gitignore.io/?templates=macos,latex,pycharm,windows,microsoftoffice
 
+**/test
+
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
