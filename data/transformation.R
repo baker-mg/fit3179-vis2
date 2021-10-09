@@ -54,10 +54,11 @@ summit_date_climbers <- expeditions %>%
   mutate(summit_date = as.Date(summit_date, "%m/%d/%y")) %>%
   complete(summit_date = seq.Date(min(summit_date), max(summit_date), by="day")) %>%
   mutate(month_day = format(as.Date(summit_date), "%m%d")) %>%
-  filter(between(month_day, 0412, 0615)) %>% 
+  filter(between(month_day, 0428, 0607)) %>% 
   group_by(summit_date) %>%
-  summarise(summit_climbers = sum(summit_climbers))
-summit_date_climbers[is.na(summit_date_climbers)] <- 0
+  summarise(summit_climbers = sum(summit_climbers)) %>%
+  mutate(summit_climbers_NA = summit_climbers)
+summit_date_climbers$summit_climbers[is.na(summit_date_climbers$summit_climbers)] <- 0
 write.csv(summit_date_climbers, "summit_date_climbers_filter.csv", row.names = FALSE)
 
 # Number of summitters

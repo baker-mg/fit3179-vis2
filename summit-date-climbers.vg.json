@@ -1,0 +1,126 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"vconcat": [
+		{
+			"data": { "url": "data/summit_date_climbers_filter.csv" },
+			"layer": [
+				{
+					"mark": "rect",
+					"encoding": {
+						"y": {
+							"field": "summit_date",
+							"type": "ordinal",
+							"timeUnit": "monthdate"
+						},
+						"x": {
+							"field": "summit_date",
+							"type": "ordinal",
+							"timeUnit": "year"
+						},
+						"color": {
+                            "condition": {
+                                "param":"brush",
+                                "field": "summit_climbers_NA",
+								"type": "quantitative"
+                            },
+                            "value":"grey"
+								
+							},
+						"tooltip": [
+							{
+								"field": "summit_climbers",
+								"type": "quantitative",
+								"title": "Number of Summiters"
+							},
+							{
+								"field": "summit_date",
+								"type": "temporal",
+								"timeUnit": "utcyearmonthdate",
+								"title": "Date"
+							}
+						]
+					}
+				},
+				{
+					"mark": "text",
+					"encoding": {
+						"y": {
+							"field": "summit_date",
+							"type": "ordinal",
+							"timeUnit": "monthdate"
+						},
+						"x": {
+							"field": "summit_date",
+							"type": "ordinal",
+							"timeUnit": "year"
+						},
+						"text": {
+							"condition": {
+								"test": "datum['summit_climbers'] > 0",
+								"field": "summit_climbers",
+								"type": "quantitative"
+							}
+						},
+						"tooltip": [
+							{
+								"field": "summit_climbers",
+								"type": "quantitative",
+								"title": "Number of Summiters"
+							},
+							{
+								"field": "summit_date",
+								"type": "temporal",
+								"timeUnit": "utcyearmonthdate",
+								"title": "Date"
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"data": {
+				"url": "data/summit_date_climbers_filter.csv"
+			},
+			"mark": "bar",
+			"params": [
+				{
+					"name": "brush",
+					"select": { "type": "point", "encodings": ["x"] }
+				}
+			],
+			"encoding": {
+				"x": {
+					"field": "summit_date",
+					"type": "ordinal",
+					"timeUnit": "year"
+				},
+				"y": {
+					"field": "summit_climbers",
+					"aggregate": "sum",
+					"type": "quantitative"
+				},
+				"tooltip": [
+					{
+						"field": "summit_climbers",
+						"aggregate": "sum",
+						"type": "quantitative",
+						"title": "Number of Summitters"
+					},
+					{
+						"field": "summit_date",
+						"type": "ordinal",
+						"timeUnit": "year",
+						"title": "Year"
+					}
+				]
+			}
+		}
+	],
+	"config": {
+		"axis": {
+			"grid": true,
+			"tickBand": "extent"
+		}
+	}
+}
