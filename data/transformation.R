@@ -40,3 +40,33 @@ origin_country <- origin_country[-113,]
 origin_country <- origin_country[-113,]
 
 write.csv(origin_country, "origin-country.csv")
+
+
+# Summit date
+summit_date_expeditions <- tt$expeditions %>%
+  filter(peak_name == "Everest", termination_reason == "Success (main peak)") %>%
+  count(year, highpoint_date)
+
+expeditions <- read.csv("exped.csv")
+summit_date_climbers <- expeditions %>%
+  filter(peakid == "EVER", termination_reason == 1, year >= 1970) %>%
+  mutate(summit_climbers= summit_members+summit_hired) %>%
+  mutate(summit_date = as.Date(summit_date, "%m/%d/%y")) %>%
+  complete(summit_date = seq.Date(min(summit_date), max(summit_date), by="day")) %>%
+  mutate(month_day = format(as.Date(summit_date), "%m%d")) %>%
+  filter(between(month_day, 0412, 0615)) %>% 
+  group_by(summit_date) %>%
+  summarise(summit_climbers = sum(summit_climbers))
+summit_date_climbers[is.na(summit_date_climbers)] <- 0
+write.csv(summit_date_climbers, "summit_date_climbers_filter.csv", row.names = FALSE)
+
+# Number of summitters
+summit_counts_year <- expeditions %>%
+  filter(peakid == "EVER", termination_reason == 1, year >= 1970) %>%
+  mutate(summit_climbers= summit_members+summit_hired) %>%
+  group_by(year) %>%
+  summarise(summit_climbers = sum(summit_climbers))
+
+write.csv(summit_counts_year, "summit_counts_year.csv", row.names = FALSE)
+
+# mutate(month_day = format(as.Date(summit_date), "%m/%d")) %>%
