@@ -1,0 +1,29 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"data": { "url": "data/average_time_day.csv" },
+	"facet": {
+		"row": {
+			"field": "range",
+            "type": "ordinal",
+            "sort": [
+                "1990-1999",
+                "2000-2009",
+                "2010-2020"
+            ]
+
+		}
+	},
+	"spec": {
+		"mark": "line",
+		"encoding": {
+			"x": {
+				"field": "summit_hour",
+				"type": "quantitative"
+			},
+			"y": {
+				"field": "summit_climbers",
+				"type": "quantitative"
+			}
+		}
+	}
+}
