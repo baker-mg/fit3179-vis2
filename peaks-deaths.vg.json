@@ -3,7 +3,11 @@
 	"width": 800,
 	"height": 500,
 	"title": "test",
-	"projection": { "type": "equalEarth" },
+	"projection": {
+		"type": "equalEarth",
+		"center": [85.1, 28.4],
+        "scale": 13000
+	},
 	"layer": [
 		{
 			"data": {
@@ -19,48 +23,79 @@
 				"stroke": "white"
 			}
 		},
-        {
-            "data": {
-                "url": "data/peaks-deaths-attempts.csv"
-            },
-            "encoding":{
-                "longitude":{"field":"lon", "type": "quantitative"},
-                "latitude":{"field":"lat", "type": "quantitative"}
-            },
-            "layer": [
-                {
-                    "mark": {
-                        "type":"point",
-                        "shape":"triangle-up",
-                        "tooltip": {"content": "data"}
-                    },
-                    "encoding": {
-                        "size":{
-                            "field":"deaths",
-                            "type": "quantitative",
-                            "scale":{
-                                "type": "log"
-                            }
-                        },
-                        "color":{
-                            "field": "death_rate",
-                            "type": "quantitative"
-                        }
-                    }
-                },
-                {
-                    "mark": {
-                        "type": "text",
-                        "dy": 10
-                    },
-                    "encoding": {
-                        "text": {
-                            "field": "peak_name",
-                            "type": "nominal"
-                        }
-                    }
-                }
-            ]
-        }
+		{
+			"data": {
+				"url": "data/peaks-deaths-attempts.csv"
+			},
+			"encoding": {
+				"longitude": { "field": "lon", "type": "quantitative" },
+				"latitude": { "field": "lat", "type": "quantitative" }
+			},
+			"layer": [
+				{
+					"mark": {
+						"type": "point",
+						"shape": "triangle-up",
+						"tooltip": { "content": "data" },
+						"filled": true
+					},
+					"encoding": {
+						"size": {
+							"field": "deaths",
+							"type": "quantitative",
+							"scale": {
+								"type": "threshold",
+								"domain": [
+									40, 80, 120, 160, 200, 240, 280, 320
+								],
+								"range": [
+									100, 500, 800, 1300, 2000, 2800, 3900, 5000, 6000
+								]
+							}
+						},
+						"color": {
+							"field": "death_rate",
+							"type": "quantitative"
+						},
+						"tooltip": [
+							{
+								"field": "peak_name",
+								"type": "nominal",
+								"title": "Peak"
+							},
+							{
+								"field": "deaths",
+								"type": "quantitative",
+								"title": "Deaths"
+							},
+							{
+								"field": "death_rate",
+								"type": "quantitative",
+								"title": "Death Rate"
+							}
+						]
+					}
+				},
+				{
+					"mark": {
+						"type": "text",
+						"dy": -10
+					},
+					"encoding": {
+						"text": {
+							"field": "peak_name",
+							"type": "nominal"
+						},
+						"opacity": {
+							"condition": {
+								"test": "datum['peak_name'] != 'Gurja Himal' && datum['peak_name'] != 'Hiunchuli' &&  datum['peak_name'] != 'Mardi Himal'",
+								"value": 1
+							},
+							"value": 0
+						}
+					}
+				}
+			]
+		}
 	]
 }
