@@ -2,6 +2,22 @@
 	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 	"vconcat": [
 		{
+            "title": {
+                "text": "Number of Climbers at Summit of Mount Everest",
+                "subtitle": "Focus is on the Spring climbing season where the majority of expeditions occur.",
+                "orient": "top",
+                "anchor": "start",
+                "align": "left",
+                "encode": {
+                      "subtitle": {
+                        "enter": {
+                            "fontStyle": {
+                                "value": "italic"
+                            }
+                        }
+                      }
+                    }
+            },
 			"data": { "url": "data/summit_date_climbers_filter.csv" },
 			"layer": [
 				{
@@ -10,18 +26,21 @@
 						"y": {
 							"field": "summit_date",
 							"type": "ordinal",
-							"timeUnit": "monthdate"
+							"timeUnit": "monthdate",
+                            "title": ""
 						},
 						"x": {
 							"field": "summit_date",
 							"type": "ordinal",
-							"timeUnit": "year"
+							"timeUnit": "year",
+                            "title": ""
 						},
 						"color": {
                             "condition": {
                                 "param":"brush",
                                 "field": "summit_climbers_NA",
-								"type": "quantitative"
+								"type": "quantitative",
+                                "title": "Number of Climbers at Summit"
                             },
                             "value":"grey"
 								
@@ -30,7 +49,7 @@
 							{
 								"field": "summit_climbers",
 								"type": "quantitative",
-								"title": "Number of Summiters"
+								"title": "Number of Climbers at Summit"
 							},
 							{
 								"field": "summit_date",
@@ -59,13 +78,14 @@
 								"test": "datum['summit_climbers'] > 0",
 								"field": "summit_climbers",
 								"type": "quantitative"
-							}
+							},
+                            "value": ""
 						},
 						"tooltip": [
 							{
 								"field": "summit_climbers",
 								"type": "quantitative",
-								"title": "Number of Summiters"
+								"title": "Number of Climbers at Summit"
 							},
 							{
 								"field": "summit_date",
@@ -79,6 +99,22 @@
 			]
 		},
 		{
+            "title": {
+                "text": "Number of Climbers at Summit per Year",
+                "subtitle": "Click on a year to highlight in above heatmap.",
+                "orient": "top",
+                "anchor": "start",
+                "align": "left",
+                "encode": {
+                      "subtitle": {
+                        "enter": {
+                            "fontStyle": {
+                                "value": "italic"
+                            }
+                        }
+                      }
+                    }
+            },
 			"data": {
 				"url": "data/summit_date_climbers_filter.csv"
 			},
@@ -93,19 +129,21 @@
 				"x": {
 					"field": "summit_date",
 					"type": "ordinal",
-					"timeUnit": "year"
+					"timeUnit": "year",
+                    "title": "Year"
 				},
 				"y": {
 					"field": "summit_climbers",
 					"aggregate": "sum",
-					"type": "quantitative"
+					"type": "quantitative",
+                    "title": ""
 				},
 				"tooltip": [
 					{
 						"field": "summit_climbers",
 						"aggregate": "sum",
 						"type": "quantitative",
-						"title": "Number of Summitters"
+						"title": "Number of Climbers at Summit"
 					},
 					{
 						"field": "summit_date",

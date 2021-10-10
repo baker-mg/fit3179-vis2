@@ -115,4 +115,14 @@ write.csv(time_of_day, "time-day.csv", row.names = FALSE)
 #  group_by(summit_hour, year) %>%
 #  summarise(mean_summit_hour = mean(summ))
 #  aggregate(by=list(summit_hour, year), FUN="mean")
-  
+
+# route analysis
+routes <- expeditions %>%
+  filter(peakid == "EVER", termination_reason == 1) %>%
+  filter(route1 == "S Col-SE Ridge" | route1 == "N Col-NE Ridge" ) %>%
+  mutate(summit_climbers= summit_members+summit_hired) %>%
+  group_by(route1) %>%
+  summarise(summit_climbers=sum(summit_climbers))
+
+everest <- expeditions %>%
+  filter(peakid == "EVER", termination_reason == 1)
