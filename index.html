@@ -1,26 +1,46 @@
 <head>
     <link href="css/style.css" rel="stylesheet" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="js/main.js"></script>
 </head>
 
 <body>
     <div class="main-container">
         <div class="centre-container">
-            <div class="centre-section" id="death-cause-cc"></div>
-            <div class="centre-section" id="h">Hello</div>
-            <div class="centre-section" id="summit-date-climbers-cc" style="display: none;"></div>
-            <div class="centre-section" id="g">Goodbye</div>
+            <div class="centre-section"  style="visibility: hidden;">
+                <div class="vis-container" id="death-cause-cc"></div>
+            </div>
+            <div class="centre-section"  style="visibility: hidden;">
+                <div class="vis-container" id="peaks-deaths-cc"></div>
+            </div>
+            <div class="centre-section" style="visibility: hidden;">
+                <div class="vis-container" id="summit-date-climbers-cc"></div>
+            </div>
+            <div class="centre-section" style="visibility: hidden;">
+                <div class="vis-container" id="origin-country-cc"></div>
+            </div>
+            <div class="centre-section" style="visibility: hidden;">
+                <div class="vis-container" id="time-day-cc"></div>
+            </div>
+            <div class="centre-section">
+                <img src="img/drawing.png" id="routes" style="height: 100%; width: 100%">
+            </div>
         </div>
         <div id="death-cause-main"></div>
+        <div id="peaks-deaths-main"></div>
+        <div id="origin-country-main"></div>
+        <div id="summit-date-climbers-main"></div>
+        <div id="time-day-main"></div>
     </div>
 </body>
-
-<button type="button" class="link" id="h-b" onclick="switchTo('h')">h</button>
-<button type="button" class="link" id="g-b" onclick="switchTo('g')">g</button>
+<button type="button" class="link" id="routes-b" onclick="switchTo('routes')">Main</button>
 <button type="button" class="link" id="death-cause-b" onclick="switchTo('death-cause-cc')">Chart</button>
 <button type="button" class="link" id="summit-date-climbers-b" onclick="switchTo('summit-date-climbers-cc')">Chart</button>
+<button type="button" class="link" id="peaks-deaths-b" onclick="switchTo('peaks-deaths-cc')">Chart</button>
+<button type="button" class="link" id="origin-country-b" onclick="switchTo('origin-country-cc')">Chart</button>
+<button type="button" class="link" id="time-day-b" onclick="switchTo('time-day-cc')">Chart</button>
+
 

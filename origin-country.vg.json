@@ -6,8 +6,8 @@
 		"anchor": "start",
 		"align": "left"
 	},
-	"width": 800,
-	"height": 600,
+	"width": "container",
+	"height": "container",
 	"layer": [
 		{
 			"data": {

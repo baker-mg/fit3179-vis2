@@ -125,4 +125,6 @@ routes <- expeditions %>%
   summarise(summit_climbers=sum(summit_climbers))
 
 everest <- expeditions %>%
-  filter(peakid == "EVER", termination_reason == 1)
+  filter(peakid == "EVER", termination_reason == 1) %>%
+  mutate(summit_climbers= summit_members+summit_hired)
+sum(everest$summit_climbers)

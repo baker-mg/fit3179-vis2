@@ -4,25 +4,26 @@
 	"facet": {
 		"row": {
 			"field": "range",
-            "type": "ordinal",
-            "sort": [
-                "1990-1999",
-                "2000-2009",
-                "2010-2020"
-            ]
-
+			"type": "ordinal",
+			"sort": ["1990-1999", "2000-2009", "2010-2020"]
 		}
 	},
 	"spec": {
+		"width": "container",
 		"mark": "line",
 		"encoding": {
 			"x": {
 				"field": "summit_hour",
-				"type": "quantitative"
+				"type": "quantitative",
+				"axis": {
+					"tickCount": 24
+				},
+                "title": "Hour of Summit"
 			},
 			"y": {
 				"field": "summit_climbers",
-				"type": "quantitative"
+				"type": "quantitative",
+                "title": "Average Number of Climbers"
 			}
 		}
 	}
