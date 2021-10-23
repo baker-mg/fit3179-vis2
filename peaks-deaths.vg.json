@@ -54,7 +54,8 @@
     ],
 	"projection": {
 		"type": "equalEarth",
-		"center": [85.1, 28.4]
+		"center": [85.1, 28.4],
+        "scale": 9000
 	},
 	"layer": [
 		{
