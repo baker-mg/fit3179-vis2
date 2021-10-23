@@ -3,7 +3,6 @@
 	"data": { "url": "data/average_time_day.csv" },
     "title": {
         "text": "Summit Times of Climbers of Mount Everest",
-        "subtitle": "Subtitle",
         "orient": "top",
         "anchor": "start",
         "align": "left",
@@ -48,7 +47,7 @@
 	},
 	"spec": {
 		"width": 1318,
-        "height": 270,
+        "height": 300,
 		"mark": {
             "type": "line",
             "point": {
