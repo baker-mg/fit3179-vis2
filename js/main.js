@@ -26,6 +26,10 @@ vegaEmbed("#time-day-cc", "time-day-cc.vg.json", {"actions": false}).then(functi
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
+vegaEmbed("#age-group-cc", "age-group.vg.json", {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
 vegaEmbed("#death-cause-main", "death-cause-area.vg.json", {"actions": false}).then(function(result) {
 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
