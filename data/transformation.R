@@ -15,6 +15,7 @@ origin_country <- tt$members %>%
   
 
 origin_country <- tt$members %>%
+  filter(hired == FALSE) %>%
   mutate(simple_country = word(citizenship,1,sep="\\/")) %>%
   count(simple_country)
 
@@ -128,3 +129,24 @@ everest <- expeditions %>%
   filter(peakid == "EVER", termination_reason == 1) %>%
   mutate(summit_climbers= summit_members+summit_hired)
 sum(everest$summit_climbers)
+
+# Age
+age <- tt$members %>%
+  drop_na(age) %>%
+  filter(peak_id == "EVER", year >=1980, success == TRUE) %>%
+  mutate(
+    age_group = case_when(
+      age <35 ~ "<35",
+      age <=50 & age >= 35 ~ "35-50",
+      age > 50 ~ ">50"
+    )
+  ) %>%
+  count(year, age_group)
+
+write.csv(age, "age_group.csv")
+  
+
+
+
+
+

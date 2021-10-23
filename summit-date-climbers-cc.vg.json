@@ -23,8 +23,8 @@
                       }
                     }
             },
-            "width": 530,
-            "height": 600,
+            "width": 1365,
+            "height": 700,
 			"data": { "url": "data/summit_date_climbers_filter.csv" },
 			"layer": [
 				{
@@ -69,10 +69,7 @@
 					}
 				},
 				{
-					"mark": {
-                        "type": "text",
-                        "fontSize": 6
-                    },
+					"mark": "text",
 					"encoding": {
 						"y": {
 							"field": "summit_date",
@@ -128,7 +125,7 @@
                       }
                     }
             },
-            "width": 530,
+            "width": 1365,
             "height": 100,
 			"data": {
 				"url": "data/summit_date_climbers_filter.csv"

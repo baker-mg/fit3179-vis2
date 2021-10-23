@@ -1,5 +1,7 @@
 <head>
     <link href="css/style.css" rel="stylesheet" >
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -29,18 +31,51 @@
                 <img src="img/drawing.png" id="routes" style="height: 100%; width: 100%">
             </div>
         </div>
-        <div id="death-cause-main"></div>
-        <div id="peaks-deaths-main"></div>
-        <div id="origin-country-main"></div>
-        <div id="summit-date-climbers-main"></div>
-        <div id="time-day-main"></div>
+
+        <div id="time">
+            <div style="background-color: #045a8d; width: 100%; height: 20px;"></div>
+            <h2>Earlier More Crowded Climbs</h2>
+            <p>As </p>
+            <button type="button" class="link" id="time-day-b" onclick="switchTo('time-day-cc')">Chart</button>
+            <div id="time-day-main"></div>
+            <p>The vast majority of climbs occur during the Spring climbing season.  Climbers tend to jump on the first suitable day during their stay to summit Mount Everest.  This leads to a crowded summit and long queues in the Death Zone, the section of the climb above 8000 metres.  A record 314 climbers summitted the mountain on the 23rd of May 2019.</p>
+            <button type="button" class="link" id="summit-date-climbers-b" onclick="switchTo('summit-date-climbers-cc')">Chart</button>
+            <div id="summit-date-climbers-main"></div>
+        </div>
+
+        <div id="dangerous">
+            <div style="background-color: #045a8d; width: 100%; height: 20px;"></div>
+            <h2>What Dangers Await Climbers?</h2>
+            <p>Text</p>
+            <button type="button" class="link" id="death-cause-b" onclick="switchTo('death-cause-cc')">Chart</button>
+            <div id="death-cause-main"></div>
+            <p>Text</p>
+            <button type="button" class="link" id="peaks-deaths-b" onclick="switchTo('peaks-deaths-cc')">Chart</button>
+            <div id="peaks-deaths-main"></div>
+        </div>
+
+        <dir id="who">
+            <div style="background-color: #045a8d; width: 500px; height: 20px;"></div>
+            <h2>Older Western Climbers</h2>
+            <div id="origin-country-main" style="float: right;"></div>
+        </dir>
+        
+        <div id="title">
+            <h1>
+                Mount Everest
+            </h1>
+            <h3>
+                Visualisation by Mathew Baker
+            </h3>
+        </div>
+        
+        <div id="click">
+            <h3>Click on links such as this <button type="button" class="link" id="routes-b" onclick="switchTo('routes')">Main View</button> to centre a chart.</h3>
+        </div>
+        <p id="credit">This visualisation uses data from <a href="https://www.himalayandatabase.com/">The Himalayan Database</a>.  <a href="https://www.flickr.com/photos/smallufo/14970530073/">Picture Credit</a>  and  <a href="https://creativecommons.org/licenses/by-sa/2.0/">License</a> </p>
     </div>
 </body>
-<button type="button" class="link" id="routes-b" onclick="switchTo('routes')">Main</button>
-<button type="button" class="link" id="death-cause-b" onclick="switchTo('death-cause-cc')">Chart</button>
-<button type="button" class="link" id="summit-date-climbers-b" onclick="switchTo('summit-date-climbers-cc')">Chart</button>
-<button type="button" class="link" id="peaks-deaths-b" onclick="switchTo('peaks-deaths-cc')">Chart</button>
+
 <button type="button" class="link" id="origin-country-b" onclick="switchTo('origin-country-cc')">Chart</button>
-<button type="button" class="link" id="time-day-b" onclick="switchTo('time-day-cc')">Chart</button>
 
 

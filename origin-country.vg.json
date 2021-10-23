@@ -4,20 +4,35 @@
 		"text": "Countries of Origin of Mount Everest Climbers",
 		"orient": "top",
 		"anchor": "start",
-		"align": "left"
+		"align": "left",
+		"color": "whitesmoke",
+		"subtitleColor": "whitesmoke",
+        "font": "Source Sans Pro",
+        "fontSize": 25
 	},
 	"width": "container",
 	"height": "container",
+	"config": {
+		"legend": {
+			"orient": "bottom-left",
+			"labelColor": "whitesmoke",
+			"titleColor": "whitesmoke"
+		}
+	},
+	"background": "rgba(31, 29, 29, 0.95)",
 	"layer": [
 		{
 			"data": {
 				"url": "data/world-topo.json",
 				"format": { "type": "topojson", "feature": "custom.geo" }
 			},
-			"projection": { "type": "equirectangular" },
+			"projection": {
+				"type": "equalearth"
+			},
 			"mark": {
 				"type": "geoshape",
-				"fill": "lightgrey"
+				"fill": "rgba(31, 29, 29, 0.95)",
+				"stroke": "whitesmoke"
 			}
 		},
 		{
@@ -25,7 +40,9 @@
 				"url": "data/world-topo.json",
 				"format": { "type": "topojson", "feature": "custom.geo" }
 			},
-			"projection": { "type": "equirectangular" },
+			"projection": {
+				"type": "equalearth"
+			},
 			"transform": [
 				{
 					"lookup": "properties.name",
@@ -43,7 +60,12 @@
 				"color": {
 					"field": "n",
 					"type": "quantitative",
-					"scale": { "type": "linear" }
+					"scale": {
+						"type": "threshold",
+						"domain": [1000, 2000, 3000, 4000, 5000],
+                        "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe"," #045a8d"]
+					},
+					"title": "Number of Climbers"
 				},
 				"tooltip": [
 					{

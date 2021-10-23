@@ -4,16 +4,38 @@
 		"text": "Cause of Death when Climbing Mount Everest",
         "orient": "top",
         "anchor": "start",
-        "align": "left"
+        "align": "left",
+        "color":"whitesmoke",
+        "font": "Source Sans Pro",
+        "fontSize": 25
 	},
-    "data": {"url": "data/death_cause.csv"},
+    "config": {
+        "legend": {
+            "orient": "bottom",
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        },
+        "text": {
+            "color": "whitesmoke"
+        },
+        "axis": {
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        }
+    },
+    "background": "rgba(31, 29, 29, 0.95)",
     "width": "container",
     "height": "container",
+    "data": {"url": "data/death_cause.csv"},
     "mark": "area",
     "encoding": {
       "x": {
         "field": "decade",
-        "title": "Decade"
+        "title": "Decade",
+        "type": "temporal",
+        "axis": {
+            "tickCount": 5
+        }
       },
       "y": {
         "aggregate": "sum", "field": "n",
@@ -23,7 +45,7 @@
       "color": {
           "field":"death_cause",
           "scale":{
-              "scheme": "category20b"
+            "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe"," #045a8d"]
             },
             "title": "Cause of Death"
         }

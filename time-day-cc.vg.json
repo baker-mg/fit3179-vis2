@@ -44,14 +44,13 @@
 		}
 	},
 	"spec": {
-        "width": 475,
-        "height": 150,
+		"width": 1318,
+        "height": 270,
 		"mark": {
             "type": "line",
             "point": {
                 "size": 100
-            },
-            "color": "#045a8d"
+            }
         },
 		"encoding": {
 			"x": {

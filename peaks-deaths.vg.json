@@ -8,6 +8,10 @@
         "orient": "top",
         "anchor": "start",
         "align": "left",
+        "color": "whitesmoke",
+        "subtitleColor": "whitesmoke",
+        "font": "Source Sans Pro",
+        "fontSize": 25,
         "encode": {
               "subtitle": {
                 "enter": {
@@ -18,6 +22,21 @@
               }
             }
 	},
+    "background": "rgba(31, 29, 29, 0.95)",
+    "config": {
+        "legend": {
+            "orient": "top-right",
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        },
+        "axis": {
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        },
+        "text": {
+            "color": "whitesmoke"
+        }
+    },
     "params": [
         {
             "name": "deaths_above",
@@ -33,8 +52,7 @@
     ],
 	"projection": {
 		"type": "equalEarth",
-		"center": [85.1, 28.4],
-        "scale": 13000
+		"center": [85.1, 28.4]
 	},
 	"layer": [
 		{
@@ -47,8 +65,8 @@
 			},
 			"mark": {
 				"type": "geoshape",
-				"fill": "white",
-				"stroke": "lightgrey"
+				"fill":  "rgba(31, 29, 29, 0.95)",
+				"stroke": "whitesmoke"
 			}
 		},
 		{
