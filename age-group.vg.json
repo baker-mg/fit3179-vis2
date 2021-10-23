@@ -1,0 +1,78 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+		"text": "Age Group of Climbers",
+        "orient": "top",
+        "anchor": "start",
+        "align": "left",
+        "color":"whitesmoke",
+        "font": "Source Sans Pro",
+        "fontSize": 25
+	},
+    "width":"container",
+    "height":"container",
+    "config": {
+        "legend": {
+            "orient": "top-left",
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        },
+        "text": {
+            "color": "whitesmoke"
+        },
+        "axis": {
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke",
+            "grid": false
+        },
+        "view":{
+            "stroke":"transparent"
+        }
+    },
+	"data": { "url": "data/age_group.csv" },
+	"mark": {
+		"type": "line"
+	},
+    "background": "rgba(31, 29, 29, 0.95)",
+	"encoding": {
+		"x": {
+			"timeUnit": "year",
+			"field": "year",
+            "title": ""
+		},
+		"y": {
+			"field": "n",
+			"type": "quantitative",
+            "title": "Number of Climbers"
+		},
+		"color": {
+			"field": "age_group",
+			"type": "nominal",
+            "title": "Age Group",
+            "sort": ["<35", "35-50", ">50"],
+            "scale": {
+                "range": ["#045a8d","#a6bddb", "whitesmoke"]
+            }
+
+		},
+        "tooltip": [
+            {
+                "field": "n",
+                "type": "quantitative",
+                "title": "Number of Climbers"
+            },
+            {
+                "field": "age_group",
+                "type": "nominal",
+                "title": "Age Group"
+            },
+            {
+                "field": "year",
+                "title": "Year",
+                "timeUnit": "year"
+            }
+        ]
+
+	}
+    
+}

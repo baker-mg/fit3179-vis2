@@ -45,7 +45,7 @@
       "color": {
           "field":"death_cause",
           "scale":{
-            "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe"," #045a8d"]
+            "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]
             },
             "title": "Cause of Death"
         }

@@ -45,3 +45,7 @@ vegaEmbed("#summit-date-climbers-main", "summit-date-climbers.vg.json", {"action
 vegaEmbed("#time-day-main", "time-day.vg.json", {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
+
+vegaEmbed("#age-group-main", "age-group.vg.json", {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);

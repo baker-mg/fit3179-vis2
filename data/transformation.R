@@ -133,7 +133,7 @@ sum(everest$summit_climbers)
 # Age
 age <- tt$members %>%
   drop_na(age) %>%
-  filter(peak_id == "EVER", year >=1980, success == TRUE) %>%
+  filter(peak_id == "EVER", year >=1980) %>%
   mutate(
     age_group = case_when(
       age <35 ~ "<35",
