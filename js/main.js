@@ -10,7 +10,7 @@ vegaEmbed("#death-cause-cc", "death-cause-area.vg.json", {"actions": false}).the
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
    }).catch(console.error);
 
-vegaEmbed("#peaks-deaths-cc", "peaks-deaths.vg.json", {"actions": false}).then(function(result) {
+vegaEmbed("#peaks-deaths-cc", "peaks-deaths-cc.vg.json", {"actions": false}).then(function(result) {
 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 

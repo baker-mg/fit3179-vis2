@@ -1,0 +1,156 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"width":"container",
+	"height": "container",
+	"title": {
+		"text": "Deaths on Himalayan Peaks",
+        "subtitle": "Both cumulative deaths and death rate are displayed.",
+        "orient": "top",
+        "anchor": "start",
+        "align": "left",
+        "color": "whitesmoke",
+        "subtitleColor": "whitesmoke",
+        "font": "Source Sans Pro",
+        "fontSize": 25,
+        "fontWeight": 200,
+        "fontStyle": "normal",
+        "encode": {
+              "subtitle": {
+                "enter": {
+                    "fontStyle": {
+                        "value": "italic"
+                    }
+                }
+              }
+            }
+	},
+    "background": "rgba(31, 29, 29, 0.95)",
+    "config": {
+        "legend": {
+            "orient": "top-right",
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        },
+        "axis": {
+            "labelColor": "whitesmoke",
+            "titleColor": "whitesmoke"
+        },
+        "text": {
+            "color": "whitesmoke",
+            "fontSize": 16
+        }
+    },
+    "params": [
+        {
+            "name": "deaths_above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 300,
+                "step": 10,
+                "name": "Minimum Deaths"
+            }
+        }
+    ],
+	"projection": {
+		"type": "equalEarth",
+		"center": [85.1, 28.4]
+	},
+	"layer": [
+		{
+			"data": {
+				"url": "data/nepal-outline.json",
+				"format": {
+					"type": "topojson",
+					"feature": "gadm36_NPL_0"
+				}
+			},
+			"mark": {
+				"type": "geoshape",
+				"fill":  "rgba(31, 29, 29, 0.95)",
+				"stroke": "whitesmoke"
+			}
+		},
+		{
+			"data": {
+				"url": "data/peaks-deaths-attempts.csv"
+			},
+            "transform": [
+                {"filter": "datum.deaths > deaths_above"}
+            ],
+			"encoding": {
+				"longitude": { "field": "lon", "type": "quantitative" },
+				"latitude": { "field": "lat", "type": "quantitative" }
+			},
+			"layer": [
+				{
+					"mark": {
+						"type": "point",
+						"shape": "triangle-up",
+						"tooltip": { "content": "data" },
+						"filled": true
+					},
+					"encoding": {
+						"size": {
+							"field": "deaths",
+							"type": "quantitative",
+							"scale": {
+								"type": "threshold",
+								"domain": [
+									20, 100, 300
+								],
+								"range": [
+									600, 1300, 3000, 4500
+								]
+							},
+                            "title": "Deaths"
+						},
+						"color": {
+							"field": "death_rate",
+							"type": "quantitative",
+                            "title": "Death Rate (deaths/attempts)"
+						},
+						"tooltip": [
+							{
+								"field": "peak_name",
+								"type": "nominal",
+								"title": "Peak"
+							},
+							{
+								"field": "deaths",
+								"type": "quantitative",
+								"title": "Deaths"
+							},
+							{
+								"field": "death_rate",
+								"type": "quantitative",
+								"title": "Death Rate",
+                                "format": ".2f"
+							}
+						]
+					}
+				},
+				{
+					"mark": {
+						"type": "text",
+						"dy": -10
+					},
+					"encoding": {
+						"text": {
+							"field": "peak_name",
+							"type": "nominal"
+						},
+						"opacity": {
+							"condition": {
+								"test": "datum['peak_name'] != 'Gurja Himal' && datum['peak_name'] != 'Hiunchuli' &&  datum['peak_name'] != 'Mardi Himal'",
+								"value": 1
+							},
+							"value": 0
+						}
+					}
+				}
+			]
+		}
+	]
+}
