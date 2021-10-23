@@ -4,7 +4,7 @@
 	"vconcat": [
 		{
             "title": {
-                "text": "Number of Climbers at Summit of Mount Everest",
+                "text": "Summit Date of Climbers of Mount Everest",
                 "subtitle": "Focus is on the Spring climbing season where the majority of expeditions occur.",
                 "orient": "top",
                 "anchor": "start",
@@ -13,6 +13,8 @@
                 "subtitleColor": "whitesmoke",
                 "font": "Source Sans Pro",
                 "fontSize": 25,
+                "fontWeight": 200,
+                "fontStyle": "normal",
                 "encode": {
                       "subtitle": {
                         "enter": {
@@ -48,7 +50,10 @@
                                 "field": "summit_climbers_NA",
 								"type": "quantitative",
                                 "title": "Number of Climbers at Summit",
-                                "legend": null
+                                "legend": null,
+                                "scale": {
+                                    "scheme": "blues"
+                                }
                             },
                             "value":"grey"
 								
@@ -118,6 +123,10 @@
                 "align": "left",
                 "color": "whitesmoke",
                 "subtitleColor": "whitesmoke",
+                "font": "Source Sans Pro",
+                "fontSize": 25,
+                "fontWeight": 200,
+                "fontStyle": "normal",
                 "encode": {
                       "subtitle": {
                         "enter": {

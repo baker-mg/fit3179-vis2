@@ -7,7 +7,9 @@
         "align": "left",
         "color":"whitesmoke",
         "font": "Source Sans Pro",
-        "fontSize": 25
+        "fontSize": 25,
+        "fontWeight": 200,
+        "fontStyle": "normal"
 	},
     "config": {
         "legend": {
@@ -34,8 +36,10 @@
         "title": "Decade",
         "type": "temporal",
         "axis": {
-            "tickCount": 5
-        }
+            "tickCount": 5,
+            "format": "%Ys"
+        },
+        "timeUnit":"year"
       },
       "y": {
         "aggregate": "sum", "field": "n",
@@ -48,6 +52,12 @@
             "range": ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]
             },
             "title": "Cause of Death"
-        }
+        },
+        "tooltip": [
+            {
+                "field": "death_cause",
+                "title": "Cause of death"
+            }
+        ]
     }
   }

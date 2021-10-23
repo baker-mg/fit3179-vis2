@@ -11,6 +11,8 @@
         "subtitleColor": "whitesmoke",
         "font": "Source Sans Pro",
         "fontSize": 25,
+        "fontWeight": 200,
+        "fontStyle": "normal",
         "encode": {
               "subtitle": {
                 "enter": {

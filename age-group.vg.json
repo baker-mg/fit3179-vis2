@@ -7,7 +7,9 @@
         "align": "left",
         "color":"whitesmoke",
         "font": "Source Sans Pro",
-        "fontSize": 25
+        "fontSize": 25,
+        "fontWeight": 200,
+        "fontStyle": "normal"
 	},
     "width":"container",
     "height":"container",
@@ -15,7 +17,11 @@
         "legend": {
             "orient": "top-left",
             "labelColor": "whitesmoke",
-            "titleColor": "whitesmoke"
+            "titleColor": "whitesmoke",
+            "labelFontSize": 20,
+            "labelFontWeight": 200,
+            "titleFontSize":20,
+            "titleFontWeight": 200
         },
         "text": {
             "color": "whitesmoke"

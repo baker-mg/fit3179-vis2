@@ -122,6 +122,10 @@ button.link {
 	line-height: 23px;
 }
 
+a{
+    color: whitesmoke;
+}
+
 /* Specific Element CSS */
 #dangerous {
 	grid-column-start: 1;
@@ -145,7 +149,7 @@ button.link {
 }
 
 #death-cause-main {
-    height: 600px;
+    height: 500px;
     width: 100%;
 }
 
@@ -188,7 +192,15 @@ button.link {
 #credit{
     width: 100%;
     position: absolute;
-    bottom: 0;
+    top: 1900px;
+    left: 41%;
+    font-family: "Open Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 23px;
+	color: whitesmoke;
 }
 
 

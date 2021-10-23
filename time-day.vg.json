@@ -11,6 +11,8 @@
         "subtitleColor": "whitesmoke",
         "font": "Source Sans Pro",
         "fontSize": 25,
+        "fontWeight": 200,
+        "fontStyle": "normal",
         "encode": {
               "subtitle": {
                 "enter": {
@@ -46,7 +48,7 @@
 	},
 	"spec": {
         "width": 475,
-        "height": 150,
+        "height": 140,
 		"mark": {
             "type": "line",
             "point": {
